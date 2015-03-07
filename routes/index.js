@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var PDF = require('pdfkit');            //including the pdfkit module
+//var PDF = require('pdfkit');            //including the pdfkit module
 var fs = require('fs');
 var text = 'ANY_TEXT_YOU_WANT_TO_WRITE_IN_PDF_DOC';
 
