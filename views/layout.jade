@@ -1,0 +1,23 @@
+doctype html
+html(ng-app="realtime")
+  head
+    title= title
+    link(rel='stylesheet', href='css/angular-material.min.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/app.css')
+    link(rel='stylesheet', href='App/lib/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='css/style.css')
+  body
+    block content
+
+    script(src='App/lib/jquery/dist/jquery.js')
+    script(src='App/lib/bootstrap/dist/js/bootstrap.js')
+    script(src='js/angular.js')
+    script(src='js/angular-ui-router.js')
+    script(src='js/angular-animate.js')
+    script(src='js/angular-aria.js')
+    script(src='js/angular-material.js')
+    script(src='js/socket.js')
+    include ./templates.html
+    script(src='js/bindtable.js')
+    script(src='js/app.js')

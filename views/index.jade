@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .container-fluid
+    .row
+        .col-md-12
+            .js-signup
+                form.form
+                    .row
+                        .input-group
+                            span(class='input-group-addon', id="basic-addon1") Name
+                            input.form-control(id='js-fname', type='text', name='fname', aria-describedby="basic-addon1", ng-enter="enter();")
+                    .row
+                        .input-group
+                            span(class='input-group-addon', id="basic-addon2") Last Name
+                            input.form-control(id='js-lname', type='text', name='lname', aria-describedby="basic-addon2")
+    .row
+        .col-md-12
+            h1.well Building Real time apps with RethinkDB+Nodejs
+            include ./toolbar.html
+            div(ui-view)
