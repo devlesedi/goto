@@ -1,0 +1,78 @@
+doctype html
+html
+    html
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(charset="utf-8")
+        title Lesedi Ramahobo  
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        base(href='/')
+        link(rel="shortcut icon" href='@Url.Content("~/favicon.ico")' type="image/x-icon")
+        link(rel="icon", href="/", type="image/x-icon")
+        
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600,800' rel='stylesheet', type='text/css')
+        link(rel="stylesheet", type="text/css", href="Content/bootstrap.css")
+        link(rel="stylesheet", type="text/css", href="Content/animate.css")
+        link(rel="stylesheet", type="text/css", href="Content/site.css")
+        block styles
+    body(data-spy="scroll", data-offset="10")
+        hr(id="top-page", class="page-marker")
+        header
+            nav(class="navbar navbar-default ms-navbar", role="navigation")
+                div(class="container-fluid ms-container-fluid")
+                    div(class="navbar-header")
+                        button(type="button", class="navbar-toggle ms-navbar-toggle collapsed", data-toggle="collapse" data-target="#ms-navbar")
+                            span(class="sr-only") Toggle navigation
+                            span(class="icon-bar")
+                            span(class="icon-bar")
+                            span(class="icon-bar")
+                        a(class="navbar-brand ms-navbar-brand", href="#")
+                            img(src="Content/Images/logoheader.png")
+                    div(class="collapse navbar-collapse ms-navbar-collapse", id="ms-navbar")
+                        ul(class="nav navbar-nav navbar-right ms-navbar-nav")
+                            li
+                                a(href="#top-page", data-scroll) Home
+                            li
+                                a(href="#kitchensink", data-scroll) Kitchensink
+                            li
+                                a(href="#contact", data-scroll) Contact
+                            li
+                                a(href="#blogs", data-scroll) Blog
+        section.content
+            block content
+        hr(id="contact", class="page-marker")
+        footer
+            section(class="company-contact")
+                div(class="ms-container-fluid")
+                    div(class="row margin-zero")
+                        div(class="col-sm-6")
+                            h3 Contact us
+                            p For more information, please contact us.
+                            ul(class="contact-ways-list")
+                                li(class="address-bg") Spring Studios, 50 Varick St, New York, NY 10012
+                                li(class="phone-bg") +1 212 555 1871
+                                li(class="email-bg") hello@myshuttle.com
+                        div(class="col-md-offset-1 col-md-5 col-sm-6 contact-form-col")
+                            #await Html.PartialAsync("_ContactForm", new ContactViewModel())
+                    div(class="row margin-zero")
+                        div(class="col-sm-12")
+                            p(class="copyrights")
+                                span &copy;
+                                span
+                                    @String.Format("{0} MyShuttle Trademarks and brands are the property of their respective owners.", DateTime.Now.Year)
+        script(src='App/lib/jquery/dist/jquery.js')
+        script(src='App/lib/bootstrap/dist/js/bootstrap.js')
+        script(src='js/angular.js')
+        script(src='js/angular-ui-router.js')
+        script(src='js/loading-bar.min.js')
+        script(src='js/angular-animate.min.js')
+        script(src='js/angular-aria.js')
+        script(src='js/angular-material.js')
+        script(src='js/moment.js')
+        script(src='js/angular-moment.js')
+        script(src="Scripts/bind-polyfill.min.js")
+        script(src="Scripts/smooth-scroll.min.js")
+        script(src="Scripts/jquery.raty.js")
+        script(src="Scripts/wow.min.js")
+        script(src="Scripts/Pages/Config.js")
+        script(src="Scripts/Pages/Home/Common.js")
+        block scripts

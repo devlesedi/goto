@@ -1,51 +1,96 @@
 <script type='text/ng-template', id='templates/questions.html'>
-  <md-content class='md-padding'>
+  <div class="row row-merge" style="height: 100%;">
+  <div class="col-md-8">
+      <div class="" id="main_page" style="padding-bottom: 0;">
+              <div class="row row-merge">
+                    <div class="col-md-12">
+                      <div class="container-responsive block-center">
+                        <div ui-view="tabledata"></div>             
+                      </div>
+                    </div><!-- 12 -->
+              </div><!-- row -->
+        </div><!-- container -->
+  </div>
+  <div class="col-md-4">
+  <md-content class='md-padding' style="height:400px;">
     <div>
       <md-grid-list
-          md-cols-sm='2' md-cols-md='4' md-cols-gt-md='6' 
+          md-cols-sm='2' md-cols-md='2' md-cols-gt-md='2' 
           md-row-height-gt-md='1:1' md-row-height='4:3'
           md-gutter='8px' md-gutter-gt-sm='4px' >
         <md-grid-tile ng-repeat='question in questions' class='white md-whiteframe-z1' md-rowspan='1' md-colspan='2' ng-cloak>
-          <md-grid-tile-header>
-            <h3><a ng-click='delete(question)'><i class='fa fa-remove'></i></a></h3>
-          </md-grid-tile-header>
-          <p class='question animated bounceIn'>
-            <a ui-sref='edit({id: question.id})'>
-              {{question.question}}
-            </a>
+          
+          <p class='question animated bounceIn' ng-show="question.image">
+            
           </p>
           <md-grid-tile-footer>
             <h3>
-              {{question.name}}
+              {{question.name}} - <a ui-sref='app.edit({id: question.id})'>{{question.question}}</a>
             </h3>
         </md-grid-tile>
       </md-grid-list>
     </div>
   </md-content>
-  <md-button ui-sref='add' class='md-primary md-fab md-fab-bottom-right'>
+  <md-button ui-sref='app.add' class='md-primary md-fab md-fab-bottom-right'>
     ADD
   </md-button>
+  <md-button ui-sref='app.upload' class='md-primary md-fab md-fab-bottom-left'>
+    Upload
+  </md-button>
+  </div>
+  </div>
 </script>
 
 <script type='text/ng-template', id='templates/addedit.html'>
   <md-content class='md-padding'>
-    <h1>Ask a question</h1>
+    <h1>Chat Message</h1>
       <form ng-submit='save(question)'>
         <div layout layout-sm='column'>
           <md-input-container flex>
-            <label>Your Name</label>
+            <label>Your Name:</label>
             <input ng-model='question.name'>
           </md-input-container>
         </div>
         
         <md-input-container flex>
-          <label>Question</label>
+          <label>Type your Message:</label>
           <textarea ng-model='question.question' columns='1' rows='4' md-maxlength='150'></textarea>
         </md-input-container>
         <md-button class='md-raised md-primary large-font'>
           Save Question
         </md-button>
-        <md-button ui-sref='questions' class='md-raised large-font'>
+        <md-button ui-sref='app.chat' class='md-raised large-font'>
+          Cancel
+        </md-button>
+      </form>
+    </md-content>
+</script>
+<script type='text/ng-template', id='templates/upload.html'>
+  <div id="status"></div>
+  <div id="image_url"></div>
+  <div id="preview"></div>
+  <input type="file" class="form-control btn" id="image" onchange="angular.element(this).scope().s3Upload(this)">
+</script>
+
+<script type='text/ng-template', id='templates/login.html'>
+  <md-content class='md-padding'>
+    <h1>Wanna Chat? Create a Username.</h1>
+      <form ng-submit='login(user)'>
+        <div layout layout-sm='column'>
+          <md-input-container flex>
+            <label>Username:</label>
+            <input ng-model='user.username'>
+          </md-input-container>
+        </div>
+        
+        <md-input-container flex>
+          <label>Pick a color:</label>
+          <input colorpicker type="text" ng-model="user.color" />
+        </md-input-container>
+        <md-button class='md-raised md-primary large-font'>
+          Login
+        </md-button>
+        <md-button ui-sref='app.chat' class='md-raised large-font'>
           Cancel
         </md-button>
       </form>

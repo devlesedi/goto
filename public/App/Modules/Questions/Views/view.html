@@ -1,0 +1,65 @@
+<section>
+	<div class="col-md-12">
+	 	<div class="panel panel-default">
+	 		<div class="panel-heading clearfix">
+	 			<h3>COMMUNITY</h3>
+	 		</div>
+	 		<div class="panel-body">
+	 			<div class="viewDetails">
+					<h1>{{ details.name }}</h1>
+					<div class="meta">
+						<button class="btn"><i class="glyphicon glyphicon-star"></i> Follow</button>
+						<span><i class="glyphicon glyphicon-chat"></i> xx Answers</span>
+						<span am-time-ago="details.createdAt">
+					</div>
+				</div>
+	 		</div>
+	 	</div>
+	 	<hr/>
+		<div class="panel">
+			<div class="panel-heading">
+				<span>{{ details.post_count }} Answers</span>
+			</div>
+			<div class="panel-body">
+				<div ng-repeat="post in details.posts" class="media">
+					<div class="media-left">
+						<a href="#">
+						  <img class="media-object" src="#" alt="">
+						</a>
+					</div>
+					<div class="media-body">
+						<p class="media-heading">{{ post.content }}</p>
+						<p><span am-time-ago="post.createdAt"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper">
+        <div class="panel b-a">
+            <div class="panel-heading" ng-hide="apply">
+                <div class="m-b-lg">
+                    Click here to <button class="text-u-l" ng-click="apply=!apply; applied = false">Comment</button> 
+                    <div ng-show="applied" class="b-l-success ng-hide"><br>Thank you for applying for this role!</div>
+                </div>
+            </div>
+            <form ng-show="apply" ng-submit="reply()" class="ng-pristine ng-invalid ng-invalid-required ng-hide">
+                <!-- <div class="panel-heading b-b b-light">
+                    <span>From:</span> <input class="input input-sm form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" type="email" ng-model="applicant.email" style="width:30%; display:inline;" required="">&nbsp;
+                    +<a class="btn-link" href="javascript:void(0);" ng-click="showSkills=!showSkills">Add skills</a>&nbsp;
+                    +<a class="btn-link" href="javascript:void(0);" ng-click="showExperience=!showExperience">Add experience</a>
+                    <span ng-show="showSkills" class="ng-hide"><br>Skills:</span> <input ng-show="showSkills" class="input input-sm form-control ng-pristine ng-valid ng-hide" type="text" ng-model="applicant.skills" style=" display:inline;">
+                    <span ng-show="showExperience" class="ng-hide"><br>Experience:</span> <input ng-show="showExperience" class="input input-sm form-control ng-pristine ng-valid ng-hide" type="text" ng-model="applicant.experience" style="display:inline;">
+                </div> -->
+                <div class="well">
+                	{{ details.name }}?
+                </div>
+                <textarea class="wrapper form-control ng-pristine ng-valid" style="min-height:100px" ng-model="post.message"></textarea>
+                <div class="panel-footer bg-light lt">
+                    <button class="btn btn-link pull-right" type="button" ng-click="apply=!apply"><i class="fa fa-trash-o"></i>Cancel</button>
+                    <button class="btn btn-info w-xs font-bold" type="submit">Add Answer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+	</div>
+</section>

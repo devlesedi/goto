@@ -1,0 +1,49 @@
+<section data-ng-controller="QuestionsController">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <h3>Questions</h3>
+            <form ng-submit="find()">
+                <input ng-enter="find()" ng-model="search" type="text" />
+            </form>
+        </div>
+        <div class="panel-body">
+            <div class="clearfix">
+                <div class="pull-left">
+                    <button type="button" class="btn btn-default" ui-sref="newQuestion">Add a new question</button>
+                    <h3 ng-show="count == 0" class="ng-hide">Your search "{{search}}" did not match any drivers</h3>
+                </div>
+                <h4 class="pull-right"><strong>{{count}}</strong> results</h4>
+            </div>
+            <div class="row list-container">
+                <div ng-repeat="driver in drivers" class="col-xs-12 col-md-12 driver-list-item">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="ratings pull-right">
+                                <a href="#"><i class="btn btn-success rating-up glyphicon glyphicon-arrow-up"></i></a>
+                                <span>0</span>
+                                <a href="#"><i class="btn btn-danger rating-down glyphicon glyphicon-arrow-down"></i></a>
+                            </div>
+                            <div class="data">
+                                <h4><a ui-sref="viewQuestion({qid: driver.id})">{{driver.name}}</a></h4>
+                                <span class="phone">{{driver.question}}</span>
+                                <div class="separation">
+                                    <p><span am-time-ago="driver.createdAt"></span>&nbsp;{{ driver.post_count }} answers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="remove(driver)">Delete
+                            </button>
+                            <button type="button" class="btn btn-primary btn-xs"
+                                    ui-sref="editDriver({id: driver.DriverId})">Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            <list-pager count="count" page="page" go-to="goTo(numPage)"></list-pager>
+        </div>
+    </div>
+</section>

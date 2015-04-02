@@ -1,0 +1,18 @@
+extends ../layouts/layout
+
+block content
+    .container.clearfix
+        .row
+            .col-md-8
+                div(ui-view)
+            .col-md-4
+                div.panel.panel-default
+                    h3.panel-heading Community Guidelines
+                    .panel-body
+                        p Please ensure that all questions and comments posted in the Support Community area are on-topic. On-topic means that questions must relate to a technical problem or support-related issue. Comments and ideas posted under a given question should relate to that question by discussing the issue or providing suggestions intended to resolve the problem.
+block scripts
+    script(src='js/s3upload.js')
+    script(src="App/Modules/Questions/questions.js")
+    script(src="App/Modules/Questions/Controllers/questionsController.js")
+    script(src="App/Modules/Questions/Controllers/questionFormController.js")
+    script(src="App/Modules/Questions/Services/dataService.js")

@@ -6,3 +6,60 @@ body {
 a {
   color: #00B7FF;
 }
+.row-merge [class*="col-"] {
+	padding-left:0;
+    padding-right:0;
+}
+
+.tiles {
+	overflow: hidden;
+	min-height: 500px;
+}
+
+.tiles .tile {
+	height: 100%;
+	-moz-transform: rotate(-1deg);
+	-ms-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg);
+	-webkit-transform: rotate(-1deg);
+	transform: rotate(-1deg);
+	line-height: 30px;
+	background-color: #6c1f2f;
+}
+
+.ratings {
+	width: 50px;
+	text-align: center;
+}
+.ratings a {
+	width: 50px;
+	display: inline-block;
+}
+.ratings span {
+	display: inline-block;
+}
+
+/* Questions */
+#newPost md-content.md-default-theme {background-color: #fff;}
+.image-container .jumbotron {height: 289px;position: relative;}
+.image-container .jumbotron .upload-container {
+	width: 50%;
+	display: block;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+}
+.image-container .jumbotron .upload-container .icon {
+	font-size: 80px;
+	color: #bebebe;
+	height: 80px;
+	width: 80px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}

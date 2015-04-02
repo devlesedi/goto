@@ -1,0 +1,13 @@
+extends layouts/kitchensink
+
+block styles
+    link(rel='stylesheet', href='App/Modules/kitchensink/Css/kitchenmain.css')
+block content
+    .row
+        .col-md-12
+            div.container(ui-view)
+block scripts
+    script(src='App/lib/famous-angular/dist/famous-angular.js')
+    script(src='App/lib/famous/dist/famous-global.js')
+    script(src='App/Modules/Kitchensink/kitchensink.js')
+    script(src='App/Modules/Kitchensink/Controllers/kitchensinkController.js')

@@ -1,0 +1,38 @@
+<div id="newPost">
+<md-content class='md-padding'>
+<h1>Chat Message</h1>
+  <form ng-submit='save(post)'>
+    <div layout layout-sm='column'>
+      <md-input-container flex>
+        <label>Title:</label>
+        <input ng-model='post.name'>
+      </md-input-container>
+    </div>
+    <div class="image-container">
+      <div id="status"></div>
+          <div id="image_url"></div>
+          <input type="file" class="form-control btn" id="upload" style="display:none;" onchange="angular.element(this).scope().s3Upload(this);">
+
+      <div class="image-preview" style="display:none;">
+          <div id="preview"></div>
+      </div>
+      <div class="jumbotron" id="upload-panel">
+        <div class="upload-container" ng-click="upload()">
+          
+          <span class="icon"><i class="glyphicon glyphicon-camera"></i></span>
+        </div>
+      </div>
+    </div>
+    <md-input-container flex>
+      <label>Type your Message:</label>
+      <textarea ng-model='post.question' columns='1' rows='4' md-maxlength='150'></textarea>
+    </md-input-container>
+    <md-button class='md-raised md-primary large-font'>
+      Save Question
+    </md-button>
+    <md-button ui-sref='app.chat' class='md-raised large-font'>
+      Cancel
+    </md-button>
+  </form>
+</md-content>
+</div>

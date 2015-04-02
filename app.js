@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('goto:server');
 var http = require('http');
+var aws = require('aws-sdk');
 var socketIo = require('socket.io');
 var question = require('./question');
 var io;
@@ -13,8 +14,19 @@ var io;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var auth = require('./routes/auth');
+var questions = require('./routes/questions');
+var posts = require('./routes/posts');
+var tags = require('./routes/tags');
 
 var app = express();
+
+/*
+ * Load the S3 information from the environment variables.
+ */
+var AWS_ACCESS_KEY = 'AKIAIYRAB7T6MSKYAWNQ';
+var AWS_SECRET_KEY = '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';
+var S3_BUCKET = 'node-goto';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +42,35 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/login', auth);
+app.use('/questions', questions);
+app.use('/posts', posts);
+app.use('/tags', tags);
+
+app.get('/sign_s3', function(req, res){
+    aws.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
+    var s3 = new aws.S3(); 
+    var s3_params = { 
+        Bucket: S3_BUCKET, 
+        Key: req.query.s3_object_name, 
+        Expires: 60, 
+        ContentType: req.query.s3_object_type, 
+        ACL: 'public-read'
+    }; 
+    s3.getSignedUrl('putObject', s3_params, function(err, data){ 
+        if(err){ 
+            console.log(err); 
+        }
+        else{ 
+            var return_data = {
+                signed_request: data,
+                url: 'https://'+S3_BUCKET+'.s3.amazonaws.com/'+req.query.s3_object_name 
+            };
+            res.write(JSON.stringify(return_data));
+            res.end();
+        } 
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

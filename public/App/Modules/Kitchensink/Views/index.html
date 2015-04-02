@@ -1,0 +1,15 @@
+<fa-app class="full-screen">
+  <fa-scroll-view fa-pipe-from="scrollHandler">
+    <fa-modifier fa-size="getScrollerSize()">
+      <fa-container-surface fa-pipe-to="scrollHandler">
+        <fa-grid-layout fa-options="getGridOptions()">
+          <fa-view ng-repeat="brick in bricks">
+            <fa-modifier fa-size="getBrickSize()" fa-origin="[.5, .5]" fa-align="[.5, .5]">
+              <fa-surface fa-background-color="brick.color">
+              </fa-surface>
+            </fa-modifier>
+          </fa-view>
+        </fa-grid-layout>
+      </fa-container-surface>
+  </fa-scroll-view>
+</fa-app>

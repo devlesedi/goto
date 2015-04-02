@@ -6,6 +6,10 @@ function setup (io) {
 
   io.on('connection', function(socket){
 
+    // r.table('question').indexCreate('createdAt').run(function (err) {
+    //       console.log(err); 
+    // });
+
     socket.on('question:findById', function(id, cb){
       r.table('question')
         .get(id)
@@ -14,7 +18,7 @@ function setup (io) {
 
     socket.on('question:add', function(record, cb){
       
-      record = _.pick(record, 'name', 'question');
+      record = _.pick(record, 'name', 'question', 'color');
       record.createdAt = new Date();
       
       r.table('question')
@@ -38,7 +42,14 @@ function setup (io) {
       r.table('question')
         .get(record.id)
         .update(record)
-        .run(cb);
+        .run(function(err, result){
+          console.log(err);
+          if (err) {
+            cb(err);
+          } else {
+            cb(null, result);
+          }
+        });
       
     });
 

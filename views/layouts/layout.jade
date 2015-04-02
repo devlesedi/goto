@@ -1,0 +1,28 @@
+doctype html
+html(ng-app="realtime")
+  head
+    title= title
+    meta(content="IE=edge, chrome=1", http-equiv="X-UA-Compatible")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    link(rel='stylesheet', href='css/angular-material.min.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/app.css')
+    link(rel='stylesheet', href='App/lib/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/loading-bar.min.css')
+    link(rel='stylesheet', href='css/colorpicker.min.css')
+  body
+    include ../header.html
+    block content
+
+    script(src='App/lib/jquery/dist/jquery.js')
+    script(src='App/lib/bootstrap/dist/js/bootstrap.js')
+    script(src='js/angular.js')
+    script(src='js/angular-ui-router.js')
+    script(src='js/loading-bar.min.js')
+    script(src='js/angular-animate.min.js')
+    script(src='js/angular-aria.js')
+    script(src='js/angular-material.js')
+    script(src='js/moment.js')
+    script(src='js/angular-moment.js')
+    block scripts

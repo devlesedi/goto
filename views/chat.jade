@@ -1,0 +1,16 @@
+extends layouts/layout
+
+block content
+    .row
+        .col-md-12
+            include ./toolbar.html
+            div.container(ui-view)
+block scripts
+    script(src='js/bootstrap-colorpicker-module.min.js')
+    script(src='js/socket.io/socket.io.js')
+    script(src='js/angular-uuid4.min.js')
+    script(src='js/socket.js')
+    include ./templates.html
+    script(src='js/bindtable.js')
+    script(src='js/s3upload.js')
+    script(src='js/app.js')
