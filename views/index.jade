@@ -4,30 +4,22 @@ block styles
     link(rel="stylesheet", type="text/css", href="Content/jquery.raty.css", xmlns="http://www.w3.org/1999/html")
     link(rel="stylesheet", type="text/css", href="Content/home.css", xmlns="http://www.w3.org/1999/html")
     link(rel="stylesheet", type="text/css", href="Content/form.css", xmlns="http://www.w3.org/1999/html")
+    link(type="text/css", rel="stylesheet", href="http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic")
 block content
-    section(class="carousel slide ms-carousel", id="product-carousel", data-ride="carousel")
+    section(class="intro")
         #Indicators
-        ol(class="carousel-indicators ms-carousel-indicators")
-            li(data-target="#product-carousel", data-slide-to="0" class="active")
-            li(data-target="#product-carousel", data-slide-to="1")
-            li(data-target="#product-carousel", data-slide-to="2")
-        div(class="carousel-inner ms-carousel-inner")
-            div(class="item item-slide-1 active")
-            div(class="item item-slide-2")
-            div(class="item item-slide-3")
-        div(class="ms-carousel-static")
-            div(class="ms-carousel-wrapper vertical-text-wrapper")
-                div(class="vertical-text-container")
-                    h1 LESEDIRAMAHOBO.COM
-                    p#content
-                        span Hello, My name is Lesedi Ramahobo, and I'm a Software Engineer and Web Developer based in Gaborone, Botswana. I spend most of my time harnessing the power of the web to build web applications for clients and digital agencies.<br/><br/>I have a diverse set of skills, ranging from design, to HTML + CSS + Javascript, all the way to PHP, custom Wordpress theme/plugin development, enterprise development, and Linux server administration.
-                    img(src="images/selfy-lesh.jpg" class="side-bio-headshot")
+        h1 LESEDIRAMAHOBO.COM
+        p#content
+            span I'm Lesh, a Software Engineer and Web Developer based in Gaborone, BW. I spend most of my time harnessing the power of the web to build web applications for clients and digital agencies.<br/><br/>I have a diverse set of skills, ranging from design, to HTML + CSS + Javascript, all the way to PHP, custom Wordpress theme/plugin development, enterprise development, and Linux server administration.
+        img(src="images/selfy-lesh.jpg" class="side-bio-headshot")
     hr(id="kitchensink", class="page-marker")
     section(class="product-customers", id="kitchensink")
-        canvas(id="canvasElement", width="1366", height="393", style="display: inline;") Your browser does not support the Canvas element
+        canvas(id="canvasElement", style="display: inline;") Your browser does not support the Canvas element
         #inner-content
             div(class="ms-container-fluid full-spaced clearfix text-center")
                 h3(class="wow fadeInRight") Projects
+                include ./shit.html
+                
 block scripts
     script(src='https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&s=1')
     script(src="Scripts/pio.min.js")
