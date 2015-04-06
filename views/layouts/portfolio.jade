@@ -8,13 +8,17 @@ html
         base(href='/')
         link(rel="shortcut icon" href='@Url.Content("~/favicon.ico")' type="image/x-icon")
         link(rel="icon", href="/", type="image/x-icon")
-        
+        link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css", charset="utf-8")
         link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600,800' rel='stylesheet', type='text/css')
+        link(rel="stylesheet", type="text/css", href="App/lib/devicon/devicon.css")
+        link(rel="stylesheet", type="text/css", href="App/lib/devicon/devicon-colors.css")
         link(rel="stylesheet", type="text/css", href="Content/bootstrap.css")
         link(rel="stylesheet", type="text/css", href="Content/animate.css")
         link(rel="stylesheet", type="text/css", href="Content/site.css")
         block styles
     body(data-spy="scroll", data-offset="10")
+        g(id="shape-codepen", style="display:none;")
+            include ../svgs/svg-defs.svg
         hr(id="top-page", class="page-marker")
         header
             nav(class="navbar navbar-default ms-navbar", role="navigation")
@@ -26,39 +30,91 @@ html
                             span(class="icon-bar")
                             span(class="icon-bar")
                         a(class="navbar-brand ms-navbar-brand", href="#")
-                            img(src="Content/Images/logoheader.png")
+                            i.devicon-atom-plain
                     div(class="collapse navbar-collapse ms-navbar-collapse", id="ms-navbar")
                         ul(class="nav navbar-nav navbar-right ms-navbar-nav")
                             li
                                 a(href="#top-page", data-scroll) Home
                             li
-                                a(href="#kitchensink", data-scroll) Kitchensink
+                                a(href="#projects", data-scroll) Projects
                             li
-                                a(href="#contact", data-scroll) Contact
+                                a(href="#devops", data-scroll) DevOps
                             li
                                 a(href="#blogs", data-scroll) Blog
         section.content
             block content
-        hr(id="contact", class="page-marker")
+        hr(id="devops", class="page-marker")
         footer
             section(class="company-contact")
                 div(class="ms-container-fluid")
                     div(class="row margin-zero")
                         div(class="col-sm-6")
-                            h3 Contact us
-                            p For more information, please contact us.
-                            ul(class="contact-ways-list")
-                                li(class="address-bg") Spring Studios, 50 Varick St, New York, NY 10012
-                                li(class="phone-bg") +1 212 555 1871
-                                li(class="email-bg") hello@myshuttle.com
+                            h3 My Tech Stack
+                            p I build great apps with the help of some of my friends. 
+                            div(class="contact-ways-list icon-version row")
+                                div.col-sm-2
+                                    include ../svgs/angularjs-original.svg
+                                    span AngularJS
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon shape-amazonwebservices-plain-wordmark")
+                                        use(xlink:href="#shape-amazonwebservices-plain-wordmark")
+                                    span AWS
+                                div.col-sm-2
+                                    svg(class="devicon-git-plain", viewBox="0 0 128 128")
+                                        path(fill="#F34F29", d="M124.742,58.378L69.625,3.264c-3.172-3.174-8.32-3.174-11.497,0L46.685,14.71l14.518,14.518c3.375-1.139,7.243-0.375,9.932,2.314c2.703,2.706,3.462,6.607,2.293,9.993L87.42,55.529c3.385-1.167,7.292-0.413,9.994,2.295c3.78,3.777,3.78,9.9,0,13.679c-3.78,3.78-9.901,3.78-13.683,0c-2.842-2.844-3.545-7.019-2.105-10.521L68.578,47.933l-0.002,34.341c0.922,0.455,1.791,1.063,2.559,1.828c3.779,3.777,3.779,9.898,0,13.683c-3.779,3.777-9.904,3.777-13.679,0c-3.778-3.784-4.088-9.905-0.311-13.683C58.079,83.169,59,82.464,60,81.992V47.333c-1-0.472-1.92-1.172-2.856-2.111c-2.861-2.86-3.396-7.06-1.928-10.576L40.983,20.333L3.229,58.123c-3.175,3.177-3.155,8.325,0.02,11.5l55.126,55.114c3.173,3.174,8.325,3.174,11.503,0l54.86-54.858C127.913,66.703,127.916,61.552,124.742,58.378z")
+                                    span Github
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-backbonejs-original-wordmark")
+                                    span BackboneJS
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-bootstrap-plain-wordmark")
+                                    span Bootstrap
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-dot-net-original-wordmark")
+                                    span .NET Framework
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-javascript-original")
+                                    span JavaScript
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-mongodb-original-wordmark")
+                                    span MongoDB
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-mysql-original-wordmark")
+                                    span MySQL
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-php-original")
+                                    span PHP
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-nodejs-original-wordmark")
+                                    span NodeJS
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-ubuntu-plain-wordmark")
+                                    span Ubuntu (Linux)
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-wordpress-original")
+                                    span Wordpress
+                                div.col-sm-2
+                                    svg(viewBox="0 0 100 100" class="icon")
+                                        use(xlink:href="#shape-apple-original")
+                                    span Apple (iOS Apps)
                         div(class="col-md-offset-1 col-md-5 col-sm-6 contact-form-col")
-                            #await Html.PartialAsync("_ContactForm", new ContactViewModel())
+                            #awaitHtml.PartialAsync("_ContactForm", new ContactViewModel())
                     div(class="row margin-zero")
                         div(class="col-sm-12")
                             p(class="copyrights")
                                 span &copy;
-                                span
-                                    @String.Format("{0} MyShuttle Trademarks and brands are the property of their respective owners.", DateTime.Now.Year)
+                                span &nbsp;Lesedi Ramahobo. 2015.&nbsp;
+                                a(href="http://blog.lesediramahobo.com") Blog
         script(src='App/lib/jquery/dist/jquery.js')
         script(src='App/lib/bootstrap/dist/js/bootstrap.js')
         script(src='js/angular.js')

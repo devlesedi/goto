@@ -24,8 +24,8 @@ var app = express();
 /*
  * Load the S3 information from the environment variables.
  */
-var AWS_ACCESS_KEY = '';
-var AWS_SECRET_KEY = '';
+var AWS_ACCESS_KEY = 'AKIAIYRAB7T6MSKYAWNQ';
+var AWS_SECRET_KEY = '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';
 var S3_BUCKET = 'node-goto';
 
 // view engine setup
