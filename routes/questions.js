@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-	r.table('question')
+	r.table('yquestions')
 	.run({cursor: false}, function(err, results) {
   		res.render('questions/index', { questions: results });
 	});
@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/search', function(req, res, next) {
-	r.table('question')
+	r.table('yquestions')
+	.orderBy({index: r.desc('createdAt')})
 	.filter(function(doc) {
 		return doc('name').match("(?i)" + req.query.filter)
 	})
@@ -29,7 +30,7 @@ router.get('/search', function(req, res, next) {
 });
 
 router.get('/:qid', function(req, res, next) {
-	r.table('question')
+	r.table('yquestions')
     .get(req.params.qid)
     .merge(function(question) {
 	  return {
@@ -47,7 +48,7 @@ router.post('/', function(req, res, next) {
 	var record = _.pick(req.body, 'name', 'question', 'img_url');
     record.createdAt = new Date();
     record.user_id = 1;
-	r.table('question')
+	r.table('yquestions')
 	.insert(record)
 	.run(function(err, result) {
 		if(err){

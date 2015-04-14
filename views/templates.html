@@ -1,5 +1,8 @@
 <script type='text/ng-template', id='templates/questions.html'>
   <div class="row row-merge" style="height: 100%;">
+   <md-button ui-sref='app.add' class='md-primary md-fab md-fab-bottom-right'>
+    ADD
+  </md-button>
   <div class="col-md-8">
       <div class="" id="main_page" style="padding-bottom: 0;">
               <div class="row row-merge">
@@ -12,31 +15,21 @@
         </div><!-- container -->
   </div>
   <div class="col-md-4">
-  <md-content class='md-padding' style="height:400px;">
+  <md-content style="height:400px;">
     <div>
       <md-grid-list
-          md-cols-sm='2' md-cols-md='2' md-cols-gt-md='2' 
-          md-row-height-gt-md='1:1' md-row-height='4:3'
-          md-gutter='8px' md-gutter-gt-sm='4px' >
+          md-cols-sm='1' md-cols-md='1' md-cols-gt-md='2' 
+          md-row-height-gt-md='4:1' md-row-height='4:3'
+          md-gutter='8px' md-gutter-gt-sm='1px'>
         <md-grid-tile ng-repeat='question in questions' class='white md-whiteframe-z1' md-rowspan='1' md-colspan='2' ng-cloak>
-          
-          <p class='question animated bounceIn' ng-show="question.image">
-            
-          </p>
-          <md-grid-tile-footer>
-            <h3>
-              {{question.name}} - <a ui-sref='app.edit({id: question.id})'>{{question.question}}</a>
+          <h3>
+              <a href='#'>{{question.name}}</a> - {{question.question}}
             </h3>
+            
         </md-grid-tile>
       </md-grid-list>
     </div>
   </md-content>
-  <md-button ui-sref='app.add' class='md-primary md-fab md-fab-bottom-right'>
-    ADD
-  </md-button>
-  <md-button ui-sref='app.upload' class='md-primary md-fab md-fab-bottom-left'>
-    Upload
-  </md-button>
   </div>
   </div>
 </script>

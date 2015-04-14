@@ -13,4 +13,12 @@ router.get('/pdf', function(req, res, next) {
 	res.render('pdf', { title: 'Express' });
 });
 
+router.get('/services', function(req, res, next) {
+	res.render('services');
+});
+
+router.get('/a-realtime-chatroom', function(req, res, next) {
+	res.render('chat');
+});
+
 module.exports = router;
