@@ -18,14 +18,15 @@ var auth = require('./routes/auth');
 var questions = require('./routes/questions');
 var posts = require('./routes/posts');
 var tags = require('./routes/tags');
+var analytics = require('./routes/analytics');
 
 var app = express();
 
 /*
  * Load the S3 information from the environment variables.
  */
-var AWS_ACCESS_KEY = 'AKIAIYRAB7T6MSKYAWNQ';
-var AWS_SECRET_KEY = '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';
+var AWS_ACCESS_KEY = '';
+var AWS_SECRET_KEY = '';
 var S3_BUCKET = 'node-goto';
 
 // view engine setup
@@ -46,6 +47,7 @@ app.use('/login', auth);
 app.use('/questions', questions);
 app.use('/posts', posts);
 app.use('/tags', tags);
+app.use('/analytics', analytics);
 
 app.get('/sign_s3', function(req, res){
     aws.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
