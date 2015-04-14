@@ -18,13 +18,13 @@
   <md-content style="height:400px;">
     <div>
       <md-grid-list
-          md-cols-sm='1' md-cols-md='1' md-cols-gt-md='2' 
-          md-row-height-gt-md='4:1' md-row-height='4:3'
-          md-gutter='8px' md-gutter-gt-sm='1px'>
+          md-cols-sm='1' md-cols-md='2' md-cols-gt-md='2' 
+          md-row-height-gt-md='4:1' md-row-height='4:1'
+          md-gutter='8px' md-gutter-gt-sm='3px'>
         <md-grid-tile ng-repeat='question in questions' class='white md-whiteframe-z1' md-rowspan='1' md-colspan='2' ng-cloak>
-          <h3>
+          <div>
               <a href='#'>{{question.name}}</a> - {{question.question}}
-            </h3>
+            </div>
             
         </md-grid-tile>
       </md-grid-list>

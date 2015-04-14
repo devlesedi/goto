@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 	r.table('yquestions')
 	.run({cursor: false}, function(err, results) {
-  		res.render('questions/index', { questions: results });
+  		res.render('questions/index', { title: 'Yahoo Questions App | Lesedi Ramahobo | Apps', questions: results });
 	});
 });
 

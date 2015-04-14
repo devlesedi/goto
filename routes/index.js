@@ -18,7 +18,7 @@ router.get('/services', function(req, res, next) {
 });
 
 router.get('/a-realtime-chatroom', function(req, res, next) {
-	res.render('chat');
+	res.render('chat', { title: 'Realtime Chat | Lesedi Ramahobo | Apps' });
 });
 
 module.exports = router;
