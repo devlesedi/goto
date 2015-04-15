@@ -18,7 +18,7 @@ var auth = require('./routes/auth');
 var questions = require('./routes/questions');
 var posts = require('./routes/posts');
 var tags = require('./routes/tags');
-var analytics = require('./routes/analytics');
+//var analytics = require('./routes/analytics');
 
 // NewsApp
 var newsapp = require('./routes/newsapp');
