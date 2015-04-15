@@ -1,0 +1,64 @@
+<ion-view title="Add New entry" class="card-bg">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" ui-sref="tab.news()" class="button button-icon icon ion-arrow-graph-up-left"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="update()">Save</button>
+    </ion-nav-buttons>
+
+    <ion-content has-header="true" has-padding="true">
+    <section ng-key-enter="save()" tabindex="1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Entry {{productId}}</h3>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <alert ng-animate="'custom'" ng-repeat="alert in alerts" type="{{alert.type}}"
+                           close="closeAlert($index)">
+                        {{alert.msg}}
+                    </alert>
+                </div>
+                <div class="large-4 entry-image-container">
+                    <div class="form-group required">
+                        <div class="text-center" ng-class="{'has-error': showValidationMessages && !entry.Picture}">
+                            <span class="ng-hide control-label" ng-show="showValidationMessages && !entry.Picture">Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="medium-8">
+                    <form name="entryForm" ng-submit="save(entryForm)" novalidate class="list list-inset ng-clock" style="clear: both;margin-top: 0" role="form" ng-cloak>
+                        <label class="item item-input" ng-class="{'has-error': showValidationMessages && entryForm.title.$invalid}">
+                            <span class="input-label">Entry Title:</span>
+                            <input type="text" id="name" name="title" ng-model="entry.title" required/>
+                        </label>
+
+                        <label class="item item-input" ng-class="{'has-error': showValidationMessages && entryForm.body.$invalid}">
+                            <span class="input-label">Body:</span>
+                            <textarea id="body" name="body" ng-model="entry.body" required></textarea>
+                        </label>
+
+                        <label class="item item-toggle">
+                            Featured
+                            <label class="toggle">
+                                <input ng-model="entry.featured" type="checkbox">
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+                        </label>
+
+                        <div class="padding" style="padding-bottom: 0">
+                            <div class="button-bar">
+                                <a class="button button-small" ng-click="reset()" ng-disabled="isUnchanged(entry)">Reset</a>
+                                <button class="button button-small">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</ion-content>
+</ion-view>

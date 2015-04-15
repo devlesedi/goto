@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+
 //var PDF = require('pdfkit');            //including the pdfkit module
 var fs = require('fs');
 var text = 'ANY_TEXT_YOU_WANT_TO_WRITE_IN_PDF_DOC';
@@ -19,6 +21,10 @@ router.get('/services', function(req, res, next) {
 
 router.get('/a-realtime-chatroom', function(req, res, next) {
 	res.render('chat', { title: 'Realtime Chat | Lesedi Ramahobo | Apps' });
+});
+
+router.get('/cordova/app', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../Cordova/pushNews/www', 'index.html'));
 });
 
 module.exports = router;

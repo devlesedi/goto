@@ -1,2 +1,4 @@
 node_modules
 public/App/lib
+Cordova/pushNews/plugins
+Cordova/pushNews/www/lib

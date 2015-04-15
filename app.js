@@ -20,6 +20,9 @@ var posts = require('./routes/posts');
 var tags = require('./routes/tags');
 var analytics = require('./routes/analytics');
 
+// NewsApp
+var newsapp = require('./routes/newsapp');
+
 var app = express();
 
 /*
@@ -39,6 +42,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/cordova', express.static('Cordova/pushNews/www'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -47,7 +51,10 @@ app.use('/login', auth);
 app.use('/questions', questions);
 app.use('/posts', posts);
 app.use('/tags', tags);
-app.use('/analytics', analytics);
+//app.use('/analytics', analytics);
+
+// NewsApp
+app.use('/newsapp', newsapp);
 
 app.get('/sign_s3', function(req, res){
     aws.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });

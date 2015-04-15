@@ -1,0 +1,16 @@
+<ion-view view-title="Hacker News BW">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        {{news.createdAt | date : fullDate}}
+      </div>
+      <div class="item item-text-wrap">
+        {{news.title}}
+        <p>{{news.body}}</p>
+      </div>
+      <div class="item item-divider">
+        by {{news.username}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
