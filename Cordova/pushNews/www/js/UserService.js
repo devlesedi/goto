@@ -65,7 +65,7 @@
 
   function _ConfigService() {
     return {
-      server: 'http://hgv.dev/newsapp',
+      server: 'http://lesediramahobo.com/newsapp',
       twitterKey: 'your_twitter_key',
       twitterSecret: 'your_twitter_secret'
     };
